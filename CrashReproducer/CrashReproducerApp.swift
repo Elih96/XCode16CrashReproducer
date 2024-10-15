@@ -11,7 +11,11 @@ import SwiftUI
 struct CrashReproducerApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Text("CrashReproducer")
+                .task {
+                    let reproducer = Reproducer()
+                    let _ = await reproducer.reproduce()
+                }
         }
     }
 }
